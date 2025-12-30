@@ -114,8 +114,7 @@ Read their stories
     </div>
   </section>
 
-
-  <!-- 📂 Tech Stack Icons Section -->
+<!-- 📂 Tech Stack Icons Section -->
 <section id="techstack" class="py-20 bg-background dark:bg-darkbg">
   <div class="max-w-7xl mx-auto px-6">
     <!-- Horizontal flex container -->
@@ -126,12 +125,13 @@ Read their stories
 </section>
 
 <script>
-  // Array of SVGs (inline strings or file paths)
+  // Array of PNG image paths
   const techStack = [
-    { name: "Python", svg: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 100 100"><path fill="url(#a)" d="M49.64 0C24.254 0 25.839 11.009 25.839 11.009l.028 11.406h24.225v3.424H16.245S0 23.997 0 49.61c0 25.615 14.179 24.707 14.179 24.707h8.462V62.432s-.457-14.18 13.952-14.18H60.62s13.5.219 13.5-13.046V13.273S76.17 0 49.64 0M36.282 7.67a4.354 4.354 0 0 1 4.358 4.358 4.356 4.356 0 0 1-6.027 4.028 4.35 4.35 0 0 1-2.69-4.028 4.355 4.355 0 0 1 4.359-4.358"/><path fill="url(#b)" d="M50.36 99.48c25.387 0 23.802-11.009 23.802-11.009l-.028-11.405H49.908V73.64h33.847S100 75.485 100 49.869c0-25.615-14.179-24.706-14.179-24.706H77.36v11.886s.457 14.179-13.952 14.179H39.38s-13.5-.218-13.5 13.047v21.933S23.83 99.48 50.36 99.48m13.359-7.67a4.355 4.355 0 0 1-4.028-6.026 4.35 4.35 0 0 1 4.028-2.69 4.355 4.355 0 0 1 4.027 6.027 4.355 4.355 0 0 1-4.027 2.69"/><defs><linearGradient id="a" x1="9.61" x2="59.167" y1="8.948" y2="58.01" gradientUnits="userSpaceOnUse"><stop stop-color="#387EB8"/><stop offset="1" stop-color="#366994"/></linearGradient><linearGradient id="b" x1="40.028" x2="93.247" y1="40.453" y2="90.762" gradientUnits="userSpaceOnUse"><stop stop-color="#FFE052"/><stop offset="1" stop-color="#FFC331"/></linearGradient></defs></svg>` },
-    { name: "HTML5", svg: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 100 100"><path fill="#E44D26" d="M14.021 90.034 6 0h88.187l-8.022 89.985L50.02 100"/><path fill="#F16529" d="M50.093 92.344V7.39h36.048l-6.88 76.811"/><path fill="#EBEBEB" d="M22.383 18.4h27.71v11.036H34.488L35.51 40.74h14.584v11.01H25.397zm3.5 38.893h11.084l.778 8.823 12.348 3.306v11.521l-22.654-6.32"/><path fill="#fff" d="M77.706 18.4H50.044v11.036h26.64zm-2.018 22.34H50.044v11.035h13.612l-1.288 14.341-12.324 3.306v11.473l22.606-6.271"/></svg>`},
-    { name: "JavaScript", svg: `` },
-    { name: "Tailwind CSS", svg: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 100 100"><path fill="#06B6D4" d="M50 20q-20 0-25 19.994 7.5-9.997 17.5-7.498c3.804.95 6.522 3.71 9.532 6.764 4.902 4.974 10.576 10.731 22.969 10.731q20 0 24.999-19.995-7.5 9.997-17.5 7.5c-3.803-.951-6.521-3.71-9.531-6.765C68.067 25.758 62.392 20 50 20M25 49.991q-20 0-25 19.995 7.5-9.998 17.5-7.498c3.803.952 6.522 3.71 9.532 6.763C31.933 74.225 37.608 79.984 50 79.984q20 0 25-19.995-7.5 9.997-17.5 7.498c-3.803-.95-6.522-3.71-9.532-6.763C43.066 55.75 37.393 49.991 25 49.991"/></svg>` },
+    { name: "Python", img: "icons/python.png" },
+    { name: "HTML5", img: "icons/html5.png" },
+    { name: "Tailwind CSS", img: "icons/tailwind.png" },
+    { name: "JavaScript", img: "icons/javascript.png" },
+    { name: "React", img: "icons/react.png" }
   ];
 
   const stackIcons = document.getElementById('stack-icons');
@@ -140,12 +140,13 @@ Read their stories
     const wrapper = document.createElement('div');
     wrapper.className = 'flex flex-col items-center';
     wrapper.innerHTML = `
-      ${item.svg}
+      <img src="${item.img}" alt="${item.name}" class="w-16 h-16 object-contain" />
       <span class="mt-2 text-neutral dark:text-accent text-sm">${item.name}</span>
     `;
     stackIcons.appendChild(wrapper);
   });
 </script>
+
 
 
 
