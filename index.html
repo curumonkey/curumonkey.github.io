@@ -6,60 +6,77 @@
   <title>Curu Monkey</title>
   <!-- ✅ TailwindCSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Inject custom palette into Tailwind (easy to maintain)
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#4F46E5',   // Indigo
+            secondary: '#F59E0B', // Amber
+            accent: '#10B981',    // Emerald
+            neutral: '#6B7280',   // Gray
+            background: '#F3F4F6',// Light Gray
+            surface: '#FFFFFF',   // White
+          }
+        }
+      }
+    }
+  </script>
 </head>
-<body class="bg-gray-50 text-gray-900">
+<body class="bg-background text-neutral">
 
   <!-- 🌐 Navbar -->
-  <header class="bg-white shadow-md fixed w-full z-10">
+  <header class="bg-surface shadow-md fixed w-full z-10">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
       <!-- Logo -->
-      <div class="text-2xl font-bold text-indigo-600">Curu</div>
+      <div class="text-2xl font-bold text-primary">Curu</div>
       <!-- Navigation -->
       <nav>
         <ul class="hidden md:flex space-x-8 font-medium">
-          <li><a href="#home" class="hover:text-indigo-600">Home</a></li>
-          <li><a href="#about" class="hover:text-indigo-600">About</a></li>
-          <li><a href="#projects" class="hover:text-indigo-600">Projects</a></li>
-          <li><a href="#contact" class="hover:text-indigo-600">Contact</a></li>
+          <li><a href="#home" class="hover:text-accent">Home</a></li>
+          <li><a href="#about" class="hover:text-accent">About</a></li>
+          <li><a href="#projects" class="hover:text-accent">Projects</a></li>
+          <li><a href="#contact" class="hover:text-accent">Contact</a></li>
         </ul>
         <!-- Mobile Menu Button -->
-        <button id="menu-btn" class="md:hidden text-indigo-600 focus:outline-none">
+        <button id="menu-btn" class="md:hidden text-primary focus:outline-none">
           ☰
         </button>
       </nav>
     </div>
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+    <div id="mobile-menu" class="hidden md:hidden bg-surface shadow-md">
       <ul class="flex flex-col space-y-4 px-6 py-4">
-        <li><a href="#home" class="hover:text-indigo-600">Home</a></li>
-        <li><a href="#about" class="hover:text-indigo-600">About</a></li>
-        <li><a href="#projects" class="hover:text-indigo-600">Projects</a></li>
-        <li><a href="#contact" class="hover:text-indigo-600">Contact</a></li>
+        <li><a href="#home" class="hover:text-accent">Home</a></li>
+        <li><a href="#about" class="hover:text-accent">About</a></li>
+        <li><a href="#projects" class="hover:text-accent">Projects</a></li>
+        <li><a href="#contact" class="hover:text-accent">Contact</a></li>
       </ul>
     </div>
   </header>
 
   <!-- 🎯 Hero Section -->
-  <section id="home" class="pt-32 pb-20 bg-gray-100">
+  <section id="home" class="pt-32 pb-20 bg-background">
     <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
       <!-- Left: Welcome Message -->
       <div>
-        <h1 class="text-4xl md:text-5xl font-bold text-indigo-600">Welcome to My Portfolio</h1>
-        <p class="mt-4 text-lg text-gray-700">
+        <h1 class="text-4xl md:text-5xl font-bold text-primary">Welcome to My Portfolio</h1>
+        <p class="mt-4 text-lg text-neutral">
           I’m a passionate developer creating modern, responsive, and engaging web experiences.
         </p>
-        <a href="#projects" class="mt-6 inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg shadow hover:bg-indigo-700">
+        <a href="#projects" class="mt-6 inline-block bg-primary text-surface px-6 py-3 rounded-lg shadow hover:bg-secondary">
           View My Work
         </a>
       </div>
       <!-- Middle: Portrait -->
       <div class="flex justify-center">
-        <img src="Curious monkey.png" alt="Portrait" class="rounded-full shadow-lg w-60 h-60 object-cover" />
+        <img src="Curious monkey.png" alt="Portrait" class="rounded-full shadow-lg w-60 h-60 object-cover border-4 border-accent" />
       </div>
       <!-- Right: Additional Info -->
       <div>
-        <h2 class="text-2xl font-semibold">About Me</h2>
-        <p class="mt-4 text-gray-700">
+        <h2 class="text-2xl font-semibold text-secondary">About Me</h2>
+        <p class="mt-4 text-neutral">
           Skilled in HTML5, CSS3, JavaScript, and frameworks like TailwindCSS. I love building
           responsive websites that look great on any device.
         </p>
@@ -68,46 +85,46 @@
   </section>
 
   <!-- 📂 Projects Section -->
-  <section id="projects" class="py-20 bg-white">
+  <section id="projects" class="py-20 bg-surface">
     <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center text-indigo-600">Projects</h2>
+      <h2 class="text-3xl font-bold text-center text-primary">Projects</h2>
       <div class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         <!-- Project Card -->
-        <div class="bg-gray-50 p-6 rounded-lg shadow hover:shadow-lg transition">
-          <h3 class="text-xl font-semibold">Project One</h3>
-          <p class="mt-2 text-gray-600">Description of the project goes here.</p>
+        <div class="bg-background p-6 rounded-lg shadow hover:shadow-lg transition">
+          <h3 class="text-xl font-semibold text-secondary">Project One</h3>
+          <p class="mt-2 text-neutral">Description of the project goes here.</p>
         </div>
-        <div class="bg-gray-50 p-6 rounded-lg shadow hover:shadow-lg transition">
-          <h3 class="text-xl font-semibold">Project Two</h3>
-          <p class="mt-2 text-gray-600">Description of the project goes here.</p>
+        <div class="bg-background p-6 rounded-lg shadow hover:shadow-lg transition">
+          <h3 class="text-xl font-semibold text-secondary">Project Two</h3>
+          <p class="mt-2 text-neutral">Description of the project goes here.</p>
         </div>
-        <div class="bg-gray-50 p-6 rounded-lg shadow hover:shadow-lg transition">
-          <h3 class="text-xl font-semibold">Project Three</h3>
-          <p class="mt-2 text-gray-600">Description of the project goes here.</p>
+        <div class="bg-background p-6 rounded-lg shadow hover:shadow-lg transition">
+          <h3 class="text-xl font-semibold text-secondary">Project Three</h3>
+          <p class="mt-2 text-neutral">Description of the project goes here.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- 📞 Contact Section -->
-  <section id="contact" class="py-20 bg-gray-100">
+  <section id="contact" class="py-20 bg-background">
     <div class="max-w-7xl mx-auto px-6 text-center">
-      <h2 class="text-3xl font-bold text-indigo-600">Get in Touch</h2>
-      <p class="mt-4 text-gray-700">Feel free to reach out for collaborations or just a friendly hello!</p>
-      <a href="mailto:youremail@example.com" class="mt-6 inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg shadow hover:bg-indigo-700">
+      <h2 class="text-3xl font-bold text-primary">Get in Touch</h2>
+      <p class="mt-4 text-neutral">Feel free to reach out for collaborations or just a friendly hello!</p>
+      <a href="mailto:youremail@example.com" class="mt-6 inline-block bg-primary text-surface px-6 py-3 rounded-lg shadow hover:bg-secondary">
         Email Me
       </a>
     </div>
   </section>
 
   <!-- 🦶 Footer -->
-  <footer class="bg-white shadow-inner py-6">
+  <footer class="bg-surface shadow-inner py-6">
     <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
-      <p class="text-gray-600">&copy; 2025 My Portfolio. All rights reserved.</p>
+      <p class="text-neutral">&copy; 2025 My Portfolio. All rights reserved.</p>
       <div class="flex space-x-6 mt-4 md:mt-0">
-        <a href="#" class="text-indigo-600 hover:text-indigo-800">Twitter</a>
-        <a href="#" class="text-indigo-600 hover:text-indigo-800">LinkedIn</a>
-        <a href="#" class="text-indigo-600 hover:text-indigo-800">GitHub</a>
+        <a href="#" class="text-primary hover:text-secondary">Twitter</a>
+        <a href="#" class="text-primary hover:text-secondary">LinkedIn</a>
+        <a href="#" class="text-primary hover:text-secondary">GitHub</a>
       </div>
     </div>
   </footer>
