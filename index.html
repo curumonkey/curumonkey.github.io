@@ -107,28 +107,22 @@ Read their stories
         
 
       </div>
-      
-<!-- Portrait with orbiting tech stack -->
-  <div class="flex justify-center items-center relative w-80 h-80 mx-auto">
-    <!-- Main portrait -->
-    <img src="white-monkey.png" alt="Portrait"
-         class="w-60 h-60 object-cover rounded-full shadow-lg z-10 transform hover:scale-105 transition" />
+      <!-- Portrait -->
+      <div class="flex justify-center order-3 md:order-2 animate-fadeIn">
+        <img src="white-monkey.png" alt="Portrait" class="w-60 h-60 object-cover transform hover:scale-105 transition" />
+      </div>
+    </div>
+  </section>
 
-    <!-- Orbiting icons container -->
-    <div id="orbit-icons" class="absolute inset-0 animate-spin-slow">
+<!-- 📂 Tech Stack Icons Section -->
+<section id="techstack" class="py-20 bg-background dark:bg-darkbg">
+  <div class="max-w-7xl mx-auto px-6">
+    <!-- Horizontal flex container -->
+    <div id="stack-icons" class="flex flex-wrap justify-center items-center gap-6 mt-10">
       <!-- Icons injected here -->
     </div>
   </div>
-
-<style>
-  @keyframes spin-slow {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-  .animate-spin-slow {
-    animation: spin-slow 25s linear infinite;
-  }
-</style>
+</section>
 
 <script>
   // Array of PNG image paths
@@ -140,30 +134,18 @@ Read their stories
     { name: "Linux", img: "icons/Linux.png" }
   ];
 
-  const orbitIcons = document.getElementById('orbit-icons');
+  const stackIcons = document.getElementById('stack-icons');
 
-  // Distribute icons evenly around a circle
-  const radius = 120; // distance from center
-  const centerX = 160; // half of container width (w-80 = 320px)
-  const centerY = 160; // half of container height
-
-  techStack.forEach((item, i) => {
-    const angle = (i / techStack.length) * (2 * Math.PI); // radians
-    const x = centerX + radius * Math.cos(angle);
-    const y = centerY + radius * Math.sin(angle);
-
-    const icon = document.createElement('img');
-    icon.src = item.img;
-    icon.alt = item.name;
-    icon.className = 'w-12 h-12 object-contain rounded-full shadow absolute';
-    icon.style.left = `${x}px`;
-    icon.style.top = `${y}px`;
-    icon.style.transform = 'translate(-50%, -50%)';
-
-    orbitIcons.appendChild(icon);
+  techStack.forEach(item => {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'flex flex-col items-center';
+    wrapper.innerHTML = `
+      <img src="${item.img}" alt="${item.name}" class="w-16 h-16 object-contain" />
+      <span class="mt-2 text-neutral dark:text-accent text-sm">${item.name}</span>
+    `;
+    stackIcons.appendChild(wrapper);
   });
 </script>
-
 
 
 
