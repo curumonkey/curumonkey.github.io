@@ -88,28 +88,46 @@
       </div>
     </div>
   </section>
-
-  <!-- 📂 Projects Section -->
-  <section id="projects" class="py-20 bg-surface dark:bg-darksurface">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center text-primary dark:text-secondary">Projects</h2>
-      <div class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        <!-- Project Card -->
-        <div class="bg-background dark:bg-darkbg p-6 rounded-lg shadow hover:shadow-lg transition">
-          <h3 class="text-xl font-semibold text-secondary dark:text-accent">Project One</h3>
-          <p class="mt-2 text-neutral dark:text-surface">Description of the project goes here.</p>
-        </div>
-        <div class="bg-background dark:bg-darkbg p-6 rounded-lg shadow hover:shadow-lg transition">
-          <h3 class="text-xl font-semibold text-secondary dark:text-accent">Project Two</h3>
-          <p class="mt-2 text-neutral dark:text-surface">Description of the project goes here.</p>
-        </div>
-        <div class="bg-background dark:bg-darkbg p-6 rounded-lg shadow hover:shadow-lg transition">
-          <h3 class="text-xl font-semibold text-secondary dark:text-accent">Project Three</h3>
-          <p class="mt-2 text-neutral dark:text-surface">Description of the project goes here.</p>
-        </div>
-      </div>
+<!-- 📂 Projects Section -->
+<section id="projects" class="py-20 bg-surface dark:bg-darksurface">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center text-primary dark:text-secondary">Projects</h2>
+    <div id="repo-grid" class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Repo cards will be injected here -->
     </div>
-  </section>
+  </div>
+</section>
+
+<script>
+  async function loadRepos() {
+    const response = await fetch('https://api.github.com/users/curumonkey/repos');
+    const repos = await response.json();
+
+    const grid = document.getElementById('repo-grid');
+    grid.innerHTML = ''; // clear placeholder
+
+    repos.forEach(repo => {
+      const card = document.createElement('div');
+      card.className = 'bg-background dark:bg-darkbg p-6 rounded-lg shadow hover:shadow-lg transition';
+
+      card.innerHTML = `
+        <h3 class="text-xl font-semibold text-secondary dark:text-accent">
+          <a href="${repo.html_url}" target="_blank" class="hover:underline">${repo.name}</a>
+        </h3>
+        <p class="mt-2 text-neutral dark:text-surface">
+          ${repo.description ? repo.description : 'No description provided.'}
+        </p>
+        <p class="mt-2 text-sm text-neutral dark:text-surface">
+          ⭐ ${repo.stargazers_count} | 🍴 ${repo.forks_count}
+        </p>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  loadRepos();
+</script>
+
 
   <!-- 📞 Contact Section -->
   <section id="contact" class="py-20 bg-background dark:bg-darkbg">
