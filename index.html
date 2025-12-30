@@ -7,34 +7,36 @@
   <!-- ✅ TailwindCSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    // Jungle palette + animations
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            primary: '#2F5233',   // Deep Jungle Green
-            secondary: '#A3B18A', // Mossy Green
-            accent: '#FFE135',    // Banana Yellow 🍌
-            neutral: '#3A5A40',   // Dark Forest Neutral
-            background: '#DAD7CD',// Misty Light Jungle
-            surface: '#F8F7F4',   // Ivory Mist
-            darkbg: '#1B1D1A',    // Jungle Night
-            darksurface: '#2A2D27'// Dark canopy
-          },
-          keyframes: {
-            fadeIn: {
-              '0%': { opacity: 0, transform: 'translateY(20px)' },
-              '100%': { opacity: 1, transform: 'translateY(0)' },
-            }
-          },
-          animation: {
-            fadeIn: 'fadeIn 1s ease-out forwards',
+  // Jungle palette + animations
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        colors: {
+          primary: '#2F5233',      // Deep Jungle Green
+          secondary: '#A3B18A',    // Mossy Green
+          accentLight: '#DAA520',  // Amber for light mode
+          accentDark: '#FFE135',   // Banana Yellow 🍌 for dark mode
+          neutral: '#3A5A40',      // Dark Forest Neutral
+          background: '#DAD7CD',   // Misty Light Jungle
+          surface: '#F8F7F4',      // Ivory Mist
+          darkbg: '#1B1D1A',       // Jungle Night
+          darksurface: '#2A2D27'   // Dark canopy
+        },
+        keyframes: {
+          fadeIn: {
+            '0%': { opacity: 0, transform: 'translateY(20px)' },
+            '100%': { opacity: 1, transform: 'translateY(0)' },
           }
+        },
+        animation: {
+          fadeIn: 'fadeIn 1s ease-out forwards',
         }
       }
     }
-  </script>
+  }
+</script>
+
   <style>
     html { scroll-behavior: smooth; }
   </style>
@@ -47,24 +49,24 @@
       <div class="text-2xl font-bold text-primary dark:text-secondary">🐒 Curu</div>
       <nav>
         <ul class="hidden md:flex space-x-8 font-medium">
-          <li><a href="#home" class="hover:text-accent transition">Home</a></li>
-          <li><a href="#about" class="hover:text-accent transition">About</a></li>
-          <li><a href="#projects" class="hover:text-accent transition">Projects</a></li>
-          <li><a href="#techstack" class="hover:text-accent transition">Tech Stack</a></li>
-          <li><a href="#contact" class="hover:text-accent transition">Contact</a></li>
-          <li><a id="theme-toggle" class="hover:text-accent cursor-pointer">☀️</a></li>
+          <li><a href="#home" class="hover:text-accenLight transition">Home</a></li>
+          <li><a href="#about" class="hover:text-accenLight transition">About</a></li>
+          <li><a href="#projects" class="hover:text-accenLight transition">Projects</a></li>
+          <li><a href="#techstack" class="hover:text-accenLight transition">Tech Stack</a></li>
+          <li><a href="#contact" class="hover:text-accenLight transition">Contact</a></li>
+          <li><a id="theme-toggle" class="hover:text-accenLight cursor-pointer">☀️</a></li>
         </ul>
         <button id="menu-btn" class="md:hidden text-primary dark:text-secondary focus:outline-none">☰</button>
       </nav>
     </div>
     <div id="mobile-menu" class="hidden md:hidden bg-surface/90 dark:bg-darksurface/90 shadow-md">
       <ul class="flex flex-col space-y-4 px-6 py-4">
-        <li><a href="#home" class="hover:text-accent">Home</a></li>
-        <li><a href="#about" class="hover:text-accent">About</a></li>
-        <li><a href="#projects" class="hover:text-accent">Projects</a></li>
-        <li><a href="#techstack" class="hover:text-accent">Tech Stack</a></li>
-        <li><a href="#contact" class="hover:text-accent">Contact</a></li>
-        <li><a id="theme-toggle-mobile" class="hover:text-accent cursor-pointer">☀️</a></li>
+        <li><a href="#home" class="hover:text-accenLight">Home</a></li>
+        <li><a href="#about" class="hover:text-accenLight">About</a></li>
+        <li><a href="#projects" class="hover:text-accenLight">Projects</a></li>
+        <li><a href="#techstack" class="hover:text-accenLight">Tech Stack</a></li>
+        <li><a href="#contact" class="hover:text-accenLight">Contact</a></li>
+        <li><a id="theme-toggle-mobile" class="hover:text-accenLight cursor-pointer">☀️</a></li>
       </ul>
     </div>
   </header>
@@ -73,7 +75,7 @@
   <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
     <!-- Welcome -->
 <div class="animate-fadeIn md:self-end md:text-left">
-  <h1 class="text-4xl md:text-5xl font-bold text-primary dark:text-secondary">Hi there 👋</h1>
+  <h1 class="text-4xl md:text-5xl font-bold text-primary dark:text-secondary">Hi there!</h1>
   <p class="mt-4 text-lg text-neutral dark:text-surface">
     I’m no expert swinging from the tallest tree — just a curious monkey tossing coconuts of thought. 
     With AI as my vine, I crack them open and share what’s inside.
@@ -90,15 +92,19 @@
     and how the jungle itself finds clever ways to solve them.
     <br />
     <a href="#projects" 
-       class="inline-flex mt-5 text-accent items-center font-medium hover:underline md:justify-end">
-      Read their stories
-      <svg class="w-5 h-5 ms-1 text-accent rtl:rotate-180" aria-hidden="true"
-           xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-           viewBox="0 0 24 24">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M19 12H5m14 0-4 4m4-4-4-4"/>
-      </svg>
-    </a>
+   class="inline-flex mt-5 items-center font-medium hover:underline md:justify-end 
+          text-accentLight dark:text-accentDark">
+  Read more
+  <svg class="w-5 h-5 ms-1  rtl:rotate-180" 
+       aria-hidden="true"
+       xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+       viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M19 12H5m14 0-4 4m4-4-4-4"/>
+  </svg>
+</a>
+
+
   </p>
 </div>
 
@@ -161,9 +167,9 @@
         📧 Email Me
       </a>
       <div class="flex justify-center space-x-6 mt-6">
-        <a href="https://twitter.com/curumonkey" class="text-primary hover:text-secondary dark:text-secondary dark:hover:text-accent transition transform hover:scale-110">🐦</a>
-        <a href="https://linkedin.com/in/curumonkey" class="text-primary hover:text-secondary dark:text-secondary dark:hover:text-accent transition transform hover:scale-110">💼</a>
-        <a href="https://github.com/curumonkey" class="text-primary hover:text-secondary dark:text-secondary dark:hover:text-accent transition transform hover:scale-110">💻</a>
+        <a href="https://twitter.com/curumonkey" class="text-primary hover:text-secondary dark:text-secondary dark:hover:text-accentDark transition transform hover:scale-110">🐦</a>
+        <a href="https://linkedin.com/in/curumonkey" class="text-primary hover:text-secondary dark:text-secondary dark:hover:text-accentDark transition transform hover:scale-110">💼</a>
+        <a href="https://github.com/curumonkey" class="text-primary hover:text-secondary dark:text-secondary dark:hover:text-accentDark transition transform hover:scale-110">💻</a>
       </div>
     </div>
   </section>
@@ -173,9 +179,9 @@
     <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
       <p class="text-neutral dark:text-surface">&copy; 2025 Curu Monkey. All rights reserved.</p>
       <div class="flex space-x-6 mt-4 md:mt-0">
-        <a href="#" class="text-primary hover:text-secondary dark:text-secondary dark:hover:text-accent transition">🐦 Twitter</a>
-                <a href="#" class="text-primary hover:text-secondary dark:text-secondary dark:hover:text-accent transition">💼 LinkedIn</a>
-        <a href="#" class="text-primary hover:text-secondary dark:text-secondary dark:hover:text-accent transition">💻 GitHub</a>
+        <a href="#" class="text-primary hover:text-secondary dark:text-secondary dark:hover:text-accentDark transition">🐦 Twitter</a>
+                <a href="#" class="text-primary hover:text-secondary dark:text-secondary dark:hover:text-accentDark transition">💼 LinkedIn</a>
+        <a href="#" class="text-primary hover:text-secondary dark:text-secondary dark:hover:text-accentDark transition">💻 GitHub</a>
       </div>
     </div>
   </footer>
@@ -218,7 +224,7 @@
         card.className = 'bg-background dark:bg-darkbg p-6 rounded-lg shadow hover:shadow-lg transition transform hover:-translate-y-2';
 
         card.innerHTML = `
-          <h3 class="text-xl font-semibold text-secondary dark:text-accent">
+          <h3 class="text-xl font-semibold text-secondary dark:text-accentDark">
             <a href="${repo.html_url}" target="_blank" class="hover:underline">${repo.name}</a>
           </h3>
           <p class="mt-2 text-neutral dark:text-surface">
