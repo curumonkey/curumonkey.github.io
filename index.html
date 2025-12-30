@@ -109,9 +109,11 @@ Read more
     <p class="text-center mt-2 text-neutral dark:text-surface">
       Languages and technologies used across my GitHub repos.
     </p>
-    <div id="stack-list" class="mt-10 flex flex-col items-center space-y-4">
-      <!-- Unique tech stack items will be injected here -->
-    </div>
+
+    <!-- Flex list for tech stack -->
+    <ul id="stack-list" class="flex flex-wrap items-center justify-center text-heading mt-10">
+      <!-- Tech stack items will be injected here -->
+    </ul>
   </div>
 </section>
 
@@ -127,25 +129,24 @@ Read more
     for (const repo of repos) {
       const langRes = await fetch(`https://api.github.com/repos/curumonkey/${repo.name}/languages`);
       const languages = await langRes.json();
-
       Object.keys(languages).forEach(lang => allLanguages.add(lang));
     }
 
     if (allLanguages.size === 0) {
-      stackList.innerHTML = '<p class="text-neutral dark:text-surface">No languages detected.</p>';
+      stackList.innerHTML = '<li class="me-4 md:me-6 text-neutral dark:text-surface">No languages detected</li>';
       return;
     }
 
     allLanguages.forEach(lang => {
-      const langDiv = document.createElement('div');
-      langDiv.className = 'px-4 py-2 bg-background dark:bg-darkbg rounded shadow text-neutral dark:text-surface w-full max-w-sm text-center';
-      langDiv.textContent = lang;
-      stackList.appendChild(langDiv);
+      const li = document.createElement('li');
+      li.innerHTML = `<span class="me-4 hover:underline md:me-6 text-neutral dark:text-surface">${lang}</span>`;
+      stackList.appendChild(li);
     });
   }
 
   loadTechStack();
 </script>
+
 
 
   <!-- 📂 Projects Section -->
