@@ -68,55 +68,49 @@
       </ul>
     </div>
   </header>
+<!-- 🎯 Hero Section -->
+<section id="home" class="pt-32 pb-20 bg-background dark:bg-darkbg">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
+    <!-- Welcome -->
+    <div class="animate-fadeIn">
+      <h1 class="text-4xl md:text-5xl font-bold text-primary dark:text-secondary">Hi there 👋</h1>
+      <p class="mt-4 text-lg text-neutral dark:text-surface">
+        I’m no expert swinging from the tallest tree — just a curious monkey tossing coconuts of thought. With AI as my vine, I crack them open and share what’s inside.
+      </p>
+    </div>
 
-  <!-- 🎯 Hero Section -->
-  <section id="home" class="pt-32 pb-20 bg-background dark:bg-darkbg">
-    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
-      <!-- Welcome -->
-      <div class="animate-fadeIn">
-        <h1 class="text-4xl md:text-5xl font-bold text-primary dark:text-secondary">Hi there 👋</h1>
-        <p class="mt-4 text-lg text-neutral dark:text-surface">
-          I’m no expert swinging from the tallest tree — just a curious monkey tossing coconuts of thought. With AI as my vine, I crack them open and share what’s inside.
-        </p>
-      </div>
-      <!-- Additional Info -->
-      <div class="order-2 md:order-3 animate-fadeIn">
-        <p class="text-body">
-          For me, it’s natural to scamper around the jungle, 
-          spotting patterns in the canopy, watching how the vines twist, 
-          how the system grows, where the problems sprout, 
-          and how the jungle itself finds clever ways to solve them.
-          <a href="#projects" class="inline-flex text-accent items-center font-medium hover:underline">
-Read their stories
-<svg 
-  class="w-5 h-5 ms-1 text-accent rtl:rotate-180" 
-  aria-hidden="true" 
-  xmlns="http://www.w3.org/2000/svg" 
-  width="24" height="24" 
-  fill="none" 
-  viewBox="0 0 24 24">
-  
-  <path 
-    stroke="currentColor" 
-    stroke-linecap="round" 
-    stroke-linejoin="round" 
-    stroke-width="2" 
-    d="M19 12H5m14 0-4 4m4-4-4-4"/>
-</svg>
-</a></p>
-        
+    <!-- Additional Info -->
+    <div class="order-2 md:order-3 animate-fadeIn">
+      <p class="text-body">
+        For me, it’s natural to scamper around the jungle, 
+        spotting patterns in the canopy, watching how the vines twist, 
+        how the system grows, where the problems sprout, 
+        and how the jungle itself finds clever ways to solve them.
+        <a href="#projects" class="inline-flex text-accent items-center font-medium hover:underline">
+          Read their stories
+          <svg class="w-5 h-5 ms-1 text-accent rtl:rotate-180" aria-hidden="true"
+               xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+               viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M19 12H5m14 0-4 4m4-4-4-4"/>
+          </svg>
+        </a>
+      </p>
+    </div>
 
-      </div>
+    <!-- Portrait + Tech Stack together -->
+    <div class="flex flex-col items-center order-3 md:order-2 animate-fadeIn">
       <!-- Portrait -->
-      <div class="flex justify-center order-3 md:order-2 animate-fadeIn">
-        <img src="white-monkey.png" alt="Portrait" class="w-60 h-60 object-cover transform hover:scale-105 transition" />
-        <div id="stack-icons" class="flex flex-wrap justify-center items-center gap-6 mt-10">
-      <!-- Icons injected here -->
-    </div>
+      <img src="white-monkey.png" alt="Portrait"
+           class="w-60 h-60 object-cover transform hover:scale-105 transition" />
+
+      <!-- Tech stack icons below portrait -->
+      <div id="stack-icons" class="flex flex-wrap justify-center items-center gap-6 mt-6">
+        <!-- Icons injected here -->
       </div>
     </div>
-  </section>
-
+  </div>
+</section>
 
 <script>
   // Array of PNG image paths
