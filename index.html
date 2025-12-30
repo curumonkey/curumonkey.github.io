@@ -106,9 +106,11 @@ Read more
 <section id="techstack" class="py-20 bg-surface dark:bg-darksurface">
   <div class="max-w-7xl mx-auto px-6">
     <h2 class="text-3xl font-bold text-center text-primary dark:text-secondary">Tech Stack</h2>
-    <p class="text-center mt-2 text-neutral dark:text-surface">Languages and technologies used across my GitHub repos.</p>
-    <div id="stack-list" class="mt-10 space-y-8">
-      <!-- Repo + tech stack will be injected here -->
+    <p class="text-center mt-2 text-neutral dark:text-surface">
+      Languages and technologies used across my GitHub repos.
+    </p>
+    <div id="stack-list" class="mt-10 flex flex-col items-center space-y-4">
+      <!-- Unique tech stack items will be injected here -->
     </div>
   </div>
 </section>
@@ -120,34 +122,31 @@ Read more
     const stackList = document.getElementById('stack-list');
     stackList.innerHTML = '';
 
+    const allLanguages = new Set();
+
     for (const repo of repos) {
-      // Fetch languages for each repo
       const langRes = await fetch(`https://api.github.com/repos/curumonkey/${repo.name}/languages`);
       const languages = await langRes.json();
 
-      // Create repo block
-      const repoDiv = document.createElement('div');
-      repoDiv.className = 'bg-background dark:bg-darkbg p-6 rounded-lg shadow hover:shadow-lg transition';
-
-      // Build language list
-      const langList = Object.keys(languages).length > 0
-        ? Object.keys(languages).map(lang => `<li class="ml-4 list-disc">${lang}</li>`).join('')
-        : '<li class="ml-4 list-disc">No languages detected</li>';
-
-      repoDiv.innerHTML = `
-        <h3 class="text-xl font-semibold text-secondary dark:text-accent">
-          <a href="${repo.html_url}" target="_blank" class="hover:underline">${repo.name}</a>
-        </h3>
-        <p class="mt-2 text-neutral dark:text-surface">${repo.description ?? 'No description provided.'}</p>
-        <ul class="mt-4 text-neutral dark:text-surface">${langList}</ul>
-      `;
-
-      stackList.appendChild(repoDiv);
+      Object.keys(languages).forEach(lang => allLanguages.add(lang));
     }
+
+    if (allLanguages.size === 0) {
+      stackList.innerHTML = '<p class="text-neutral dark:text-surface">No languages detected.</p>';
+      return;
+    }
+
+    allLanguages.forEach(lang => {
+      const langDiv = document.createElement('div');
+      langDiv.className = 'px-4 py-2 bg-background dark:bg-darkbg rounded shadow text-neutral dark:text-surface w-full max-w-sm text-center';
+      langDiv.textContent = lang;
+      stackList.appendChild(langDiv);
+    });
   }
 
   loadTechStack();
 </script>
+
 
   <!-- 📂 Projects Section -->
   <section id="projects" class="py-20 bg-surface dark:bg-darksurface">
